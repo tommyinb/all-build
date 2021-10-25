@@ -2,9 +2,8 @@
 
 import { build } from "./build";
 
-const [_path, _script, ...parts] = process.argv;
-const command = parts.length > 0 ? parts.join(" ") : "npm run build";
+const command = process.argv[2] || "npx --yes tsc";
 
-const path = process.cwd();
+const path = process.argv[3] || process.cwd();
 
 build(command, [path]);
