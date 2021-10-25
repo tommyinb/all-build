@@ -22,11 +22,9 @@ And they will be built in order according to the dependency tree. So, _bcd-proje
 
 If _bcd-project_ or _cde-project_ as well depends on other local packages, those local packages will be built as well. Eventually, the whole tree of dependency will be built automatically.
 
----
-
 ## Command
 
-By default, `npx --yes tsc` is used to build every project. But you can use whatever command as long as the first argument is provided.
+By default, typescript compilation `npx --yes tsc` is used for every project. But you can use whatever command as long as the first argument is provided.
 
 For example, `npm run build` can be used to run the build script in every _package.json_.
 
