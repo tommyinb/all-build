@@ -31,7 +31,9 @@ export async function* readProjects(entryPath: string) {
     }
 
     currentPaths = currentProjects
-      .flatMap((project) => project.dependencies.map((dependency) => dependency.path))
+      .flatMap((project) =>
+        project.dependencies.map((dependency) => dependency.path)
+      )
       .filter((path) => !returnedPaths.has(path));
   }
 }
@@ -42,13 +44,18 @@ export async function readProject(projectPath: string): Promise<Project> {
   const packageText = await readFile(packagePath, "utf8");
   const packageJson = JSON.parse(packageText);
 
-  const { name, dependencies: dependenciesMap } = packageJson;
+  const {
+    name,
+    dependencies: dependenciesMap,
+    devDependencies: devDependenciesMap,
+  } = packageJson;
 
   if (!isString(name)) {
     throw new Error(`no name text in package in ${projectPath}`);
   }
 
   const dependencies = Object.entries(dependenciesMap || {})
+    .concat(Object.entries(devDependenciesMap || {}))
     .map(([key, value]) => {
       if (!isString(value)) {
         return undefined;
