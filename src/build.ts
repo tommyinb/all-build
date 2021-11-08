@@ -1,4 +1,5 @@
 import all from "it-all";
+import { uniqBy } from "lodash";
 import { execute } from "./execute";
 import { getLayers } from "./layer";
 import { readProjects } from "./project";
@@ -11,7 +12,11 @@ export async function build(command: string, projectPaths: string[]) {
     })
   );
 
-  const projects = pathProjects.flatMap((t) => t);
+  const projects = uniqBy(
+    pathProjects.flatMap((t) => t),
+    (project) => `${project.name} / ${project.path}`
+  );
+
   const layers = await all(getLayers(projects));
 
   for (const { index, projects } of layers) {

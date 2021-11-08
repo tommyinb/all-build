@@ -1,6 +1,6 @@
 {
   "name": "all-build",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "build package and its depending local packages",
   "bin": "dist/cli.js",
   "main": "dist/index.js",
