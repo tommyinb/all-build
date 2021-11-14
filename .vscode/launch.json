@@ -8,6 +8,14 @@
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
       "runtimeArgs": ["run-script", "start"]
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Launch Test",
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeArgs": ["run-script", "test"]
     }
   ]
 }

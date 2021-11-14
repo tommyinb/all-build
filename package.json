@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "ts-node src/cli.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require ts-node/register test/**/*.test.ts",
     "build": "tsc"
   },
   "repository": {
@@ -25,7 +25,13 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.22",
     "@types/lodash": "^4.14.176",
+    "@types/mocha": "^9.0.0",
+    "@types/sinon": "^10.0.6",
+    "chai": "^4.3.4",
+    "mochi": "^0.3.0",
+    "sinon": "^12.0.1",
     "ts-node": "^10.3.1",
     "typescript": "^4.4.4"
   }

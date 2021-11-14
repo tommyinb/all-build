@@ -22,8 +22,12 @@ export function* getLayers(projects: Project[]) {
     });
 
     if (layerProjects.length <= 0) {
-      const projectTexts = currentProjects.map((project) => `${project.name}(${project.path})`);
-      throw new Error(`cannot resolve layers among projects ${projectTexts.join(", ")}`);
+      const projectTexts = currentProjects.map(
+        (project) => `${project.name}(${project.path})`
+      );
+      throw new Error(
+        `cannot resolve layers among projects ${projectTexts.join(", ")}`
+      );
     }
 
     const layer: Layer = {

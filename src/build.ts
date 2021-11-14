@@ -14,7 +14,7 @@ export async function build(command: string, projectPaths: string[]) {
 
   const projects = uniqBy(
     pathProjects.flatMap((t) => t),
-    (project) => `${project.name} / ${project.path}`
+    (project) => `${project.name} ~ ${project.path}`
   );
 
   const layers = await all(getLayers(projects));
